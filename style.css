@@ -112,11 +112,11 @@ footer a:hover {
 }
 
 .card {
-  width: 30%;
+  
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
-}
+} */
 
 .card img {
   width: 100%;
@@ -136,6 +136,7 @@ footer a:hover {
 }
 
 /* chi siamo */
+
 #primary {
   width: 70%;
   margin: 0 auto;
