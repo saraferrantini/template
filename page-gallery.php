@@ -2,21 +2,26 @@
 
 <style>
   .slider2-container {
-    display: flex; /* Imposta il contenitore come flessibile */
-    flex-wrap: wrap; /* Consente alle card di andare a capo quando non ci sono abbastanza spazi */
-    justify-content: center; /* Centra le card all'interno del contenitore */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .card2 {
     flex: 0 0 auto;
     width: 300px;
-    margin: 10px; /* Aggiunge spazio tra le card */
+    margin: 10px;
+    transition: transform 0.3s ease; /* Aggiunge una transizione al passaggio del mouse */
   }
 
   .card2 img {
     width: 100%;
     height: auto;
     max-width: 100%;
+  }
+
+  .card2:hover {
+    transform: scale(1.4); /* Ingrandisce la card al passaggio del mouse */
   }
 </style>
 
