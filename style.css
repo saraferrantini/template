@@ -5,78 +5,72 @@ Version: 1.0
 Author: Sara Ferrantini
 */
 
-/* Di seguito inseriremo il codice CSS */
-
 /* Stile generale del corpo e del testo */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+
   color: #333;
   line-height: 1.6;
 }
 
-/* Stile per l'header */
-header {
-  background-color: rgb(24, 35, 55);
-  color: #fff;
-  padding: 20px;
-}
-
-/* Stile per il logo nell'header */
-header .logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-/* Stile per il menu di navigazione */
+/* MENU' DI NAVIGAZIONE*/
 nav {
-  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Stile per il logo nella navbar */
+nav .logo {
+  width: 70px;
+  height: auto;
 }
 
 nav ul {
-  list-style: none;
-  padding: 0;
+  margin-left: 988px;
 }
 
 nav ul li {
   display: inline-block;
-  margin-right: 20px;
+  margin-left: 20px;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
 }
 
 nav ul li a {
-  color: #fff;
+  color: #333;
   text-decoration: none;
   padding: 10px;
 }
 
 nav ul li a:hover {
-  background-color: #0056b3;
+  background-color: #f0f0f0;
 }
 
-/* Stile per il contenuto principale */
-#content {
-  padding: 20px;
+/* LOGO navbar */
+nav img {
+  margin-right: 20px;
 }
 
-/* Stile per gli articoli */
-article {
-  background-color: #fff;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  padding: 20px;
-}
-
-/* Stile per il footer */
+/* FOOTER */
 footer {
-  background-color: rgb(24, 35, 55);
-  color: #fff;
+  background-color: #fff;
+  color: #333;
   padding: 20px;
   text-align: center;
 }
 
+/* Stile per i paragrafi nel footer */
+.footer-content p {
+  margin: 10px 0;
+}
+
 /* Stile per i link nel footer */
 footer a {
-  color: #fff;
+  color: #333;
   text-decoration: none;
 }
 
@@ -84,11 +78,19 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* HOME */
+.social-icon {
+  width: px;
+  height: auto;
+  margin-right: 10px;
+  filter: opacity(0.7);
+}
+
+/* --- */
+/* SLIDER CON FOTO E TITOLO */
 #slider {
-  position: relative; /* Per consentire il posizionamento assoluto degli elementi figlio */
+  position: relative;
   width: 100%;
-  height: 600px;
+  height: 900px;
   background-image: url("https://desiderandoviaggiare.com/wp-content/uploads/2021/10/bg-viaggi-gruppo.jpg");
   background-size: cover;
   background-position: center;
@@ -96,15 +98,48 @@ footer a:hover {
   color: #fff;
 }
 
+/* titolo */
 #slider h1 {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 36px;
+  font-size: 80px;
 }
 
-/* card */
+/* --- */
+/* CHI SIAMO */
+/* Stile per la sezione "Chi siamo" */
+#about-us {
+  background-color: #f9f9f9;
+  padding: 89px 0;
+}
+
+#about-us .about-us-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#about-us .about-us-text {
+  max-width: 45%;
+  margin-right: 30px;
+  margin-left: 60px;
+}
+
+#about-us .about-us-image {
+  /* max-width: %;  */
+}
+
+#about-us .about-us-image img {
+  margin-right: 22px;
+  margin-top: 25px;
+}
+
+/* --- */
+
+/* CARD ARTICOLI */
 #card-container {
   display: flex;
   justify-content: space-around;
@@ -141,15 +176,35 @@ footer a:hover {
   width: 70%;
   margin: 0 auto;
   padding: 30px;
+/* DURANTE IL VIAGGIO */
+#during-travel {
+  background-color: #f9f9f9;
+  padding: 50px 0;
+  text-align: center;
 }
 
-.entry-title {
-  font-size: 2.5rem;
+.during-travel-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.during-travel-item {
+  width: 30%;
+  padding: 20px;
+  background-color: #fff;
+
   margin-bottom: 20px;
 }
 
-.entry-content {
-  font-size: 1.1rem;
+.during-travel-item h3 {
+  font-size: 24px;
+  color: #333;
+}
+
+.during-travel-item p {
+  color: #666;
   line-height: 1.6;
 }
 
@@ -234,4 +289,124 @@ footer a:hover {
 }
 .slide1 img {
   width: 2rem;
+/* TESTIMONIANZE*/
+
+#testimonials {
+  background-color: #eceff8;
+  padding: 50px 0;
+  text-align: center;
+}
+
+/* Stile per il contenitore delle testimonianze */
+#testimonials-container {
+  display: flex;
+  margin-left: 65px;
+  margin-top: 20px;
+}
+
+/* Stile per le card delle testimonianze */
+.testimonial-card {
+  width: calc(30% - 20px);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.testimonial-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 10px;
+}
+
+/* CARD PAGINE PROMOZIONI */
+.promozione-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.promozione-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease;
+}
+
+.promozione-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.promozione-card:hover {
+  transform: scale(1.05);
+}
+
+.promozione-card h2 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.promozione-card p {
+  font-size: 1rem;
+}
+
+.promozioni-container {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.promozione-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+/* PARTNER */
+.partner-section {
+  margin-top: 117px;
+  text-align: center;
+  margin-bottom: 117px;
+}
+
+.partner {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.partner img {
+  width: auto;
+  height: 90px;
+  display: block;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.partner img:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.partner p {
+  font-size: 16px;
+}
+.promozioni-text-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.promozioni-text-card img {
+  max-width: 100%;
+  height: auto;
 }
