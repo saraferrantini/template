@@ -57,8 +57,8 @@ nav img {
 
 /* FOOTER */
 footer {
-  background-color: #fff;
-  color: #333;
+  background-color: rgb(24, 35, 55);
+  color: #fff;
   padding: 20px;
   text-align: center;
 }
@@ -147,13 +147,11 @@ footer a:hover {
 }
 
 .card {
-  
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
-} */
-
-.card img {
+}
+*/ .card img {
   width: 100%;
   height: auto;
 }
@@ -176,6 +174,7 @@ footer a:hover {
   width: 70%;
   margin: 0 auto;
   padding: 30px;
+}
 /* DURANTE IL VIAGGIO */
 #during-travel {
   background-color: #f9f9f9;
@@ -289,6 +288,7 @@ footer a:hover {
 }
 .slide1 img {
   width: 2rem;
+}
 /* TESTIMONIANZE*/
 
 #testimonials {
