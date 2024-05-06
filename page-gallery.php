@@ -1,78 +1,54 @@
-<?php
+<?php get_header(); ?>
 
-get_header();
-?>
+<style>
+  .slider2-container {
+    display: flex; /* Imposta il contenitore come flessibile */
+    flex-wrap: wrap; /* Consente alle card di andare a capo quando non ci sono abbastanza spazi */
+    justify-content: center; /* Centra le card all'interno del contenitore */
+  }
 
-   
-  <div class="slider1">
-    <div class="slider1-container">
-        <?php
-        // Query per recuperare tutti i post
-        $args = array(
-            'post_type' => 'post',
-            'posts_per_page' => -1, // Recupera tutti i post
-        );
-        $posts_query = new WP_Query($args);
+  .card2 {
+    flex: 0 0 auto;
+    width: 300px;
+    margin: 10px; /* Aggiunge spazio tra le card */
+  }
 
-        // Loop attraverso i post
-        if ($posts_query->have_posts()) :
-            while ($posts_query->have_posts()) : $posts_query->the_post();
+  .card2 img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+</style>
 
-                // Ottieni l'ID dell'immagine in evidenza
-                $thumbnail_id = get_post_thumbnail_id();
+<div class="slider2-container">
+  <?php
+  $args = array(
+    'post_type' => 'post',
+    'posts_per_page' => -1
+  );
+  $posts_query = new WP_Query($args);
 
-                if ($thumbnail_id) {
-                    // Ottieni l'URL dell'immagine in evidenza
-                    $thumbnail_url = wp_get_attachment_image_url($thumbnail_id, 'full');
-                    ?>
-                    <div class="slide1">
-                        <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title_attribute(); ?>">
-                    </div>
-                    <?php
-                }
+  if ($posts_query->have_posts()) :
+    while ($posts_query->have_posts()) : $posts_query->the_post();
 
-            endwhile;
-            wp_reset_postdata();
-        else :
-            echo 'Nessun post trovato.';
-        endif;
-        ?>
-    </div><!-- .slider1-container -->
-    <div class="slider-controls">
-        <button class="prev-slide">&lt;</button>
-        <button class="next-slide">&gt;</button>
-    </div><!-- .slider-controls -->
-</div><!-- .slider1 -->
+      // Ottieni l'URL dell'immagine in evidenza
+      $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
 
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-        var currentSlide = 0;
-        var slides = document.querySelectorAll('.slide1');
+      if ($thumbnail_url) {
+  ?>
+        <div class="card2">
+          <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title_attribute(); ?>">
+          <h6><?php the_title(); ?></h6>
+        </div>
+  <?php
+      }
 
-        function showSlide(n) {
-            slides.forEach(function(slide) {
-                slide.style.display = 'none';
-            });
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].style.display = 'block';
-        }
+    endwhile;
+    wp_reset_postdata();
+  else :
+    echo 'Nessun post trovato.';
+  endif;
+  ?>
+</div>
 
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        document.querySelector('.prev-slide').addEventListener('click', prevSlide);
-        document.querySelector('.next-slide').addEventListener('click', nextSlide);
-
-        showSlide(currentSlide); // Mostra il primo slide all'avvio
-        setInterval(nextSlide, 2000); // Imposta l'intervallo per passare allo slide successivo ogni 2 secondi
-    });
-</script>
-  
-
-<?php
-get_footer();
+<?php get_footer(); ?>

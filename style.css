@@ -251,44 +251,7 @@ footer a:hover {
   object-fit: cover;
   display: block;
 }
-/*gallery*/
 
-.slider1-container {
-  width: 100px; /* Imposta la larghezza massima dello slider a 200px */
-  margin: 0 auto; /* Centra lo slider orizzontalmente */
-  position: relative; /* Per consentire il posizionamento assoluto degli slide */
-  overflow: hidden; /* Nascondi gli slide oltre i 200px */
-}
-
-.slide1 {
-  display: none; /* Nascondi di default gli slide */
-  position: absolute; /* Posizionamento assoluto per sovrapporre gli slide */
-  top: 0;
-  left: 0;
-}
-
-.slider-controls {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.slider-controls button {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.slider-controls button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-.slide1 img {
-  width: 2rem;
-}
 /* TESTIMONIANZE*/
 
 #testimonials {
