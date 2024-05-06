@@ -12,9 +12,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <header>
-        <nav>
-            <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
-        </nav>
-    </header>
-
+<nav>
+    <img src="<?php echo get_template_directory_uri(); ?>../assets/logo.jpg" alt="Logo" class="logo">
+    <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
+</nav>
