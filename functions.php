@@ -23,49 +23,45 @@ function custom_theme_setup() {
 }
 add_action('after_setup_theme', 'custom_theme_setup');
 
-// codice per l'email
 
-// Include le classi di PHPMailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-// Funzione per inviare l'email utilizzando PHPMailer
-function invia_email_con_phpmailer($nome, $email, $messaggio) {
-    // Includi la libreria PHPMailer
-    require_once get_template_directory() . '/PHPMailer/PHPMailer.php';
-    require_once get_template_directory() . '/PHPMailer/SMTP.php';
-    require_once get_template_directory() . '/PHPMailer/Exception.php';
-
-    // Inizializza un nuovo oggetto PHPMailer
-    $mail = new PHPMailer(true);
-
-    // Imposta Mailtrap come SMTP
+function mailtrap($mail) {
     $mail->isSMTP();
     $mail->Host = 'sandbox.smtp.mailtrap.io';
     $mail->SMTPAuth = true;
     $mail->Port = 2525;
     $mail->Username = '6763969999edcf';
     $mail->Password = '16e365cda6f666';
+}
+add_action('phpmailer_init', 'mailtrap');
 
-    // Imposta mittente e destinatario dell'email
-    $mail->setFrom($email, $nome);
-    $mail->addAddress('destination@example.com', 'Destinatario');
+if (isset($_POST['submit'])) {
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $messaggio = $_POST['messaggio'];
 
-    // Imposta il soggetto e il corpo dell'email
-    $mail->Subject = 'Nuovo messaggio dal form di contatto';
-    $mail->Body    = $messaggio;
+    // Indirizzo email a cui verrà inviata la mail
+    $to = 'joe@example.com';
 
-    try {
-        // Invia l'email
-        if(!$mail->send()) {
-            return false; // Errore durante l'invio dell'email
-        } else {
-            return true; // Email inviata con successo
-        }
-    } catch (Exception $e) {
-        // Gestisci l'eccezione
-        echo 'Si è verificato un errore durante l\'invio dell\'email: ' . $mail->ErrorInfo;
+    // Oggetto dell'email
+    $subject = 'Nuovo messaggio dal form di contatto';
+
+    // Corpo dell'email
+    $message = 'Nome: ' . $nome . "\r\n";
+    $message .= 'Email: ' . $email . "\r\n";
+    $message .= 'Messaggio: ' . $messaggio;
+
+    // Intestazioni aggiuntive
+    $headers = array(
+        'From: ' . $email,
+        'Reply-To: ' . $email,
+    );
+
+    // Invia l'email utilizzando la funzione wp_mail() di WordPress
+    if (wp_mail($to, $subject, $message, $headers)) {
+        echo '<div class="alert alert-success" role="alert">Messaggio inviato con successo!</div>';
+    } else {
+        echo '<div class="alert alert-danger" role="alert">Errore durante l\'invio del messaggio. Riprova più tardi.</div>';
     }
 }
+
 ?>
