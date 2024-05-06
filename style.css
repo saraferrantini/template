@@ -152,3 +152,86 @@ footer a:hover {
   font-size: 1.1rem;
   line-height: 1.6;
 }
+
+/*sezione pratica*/
+.card1 {
+  display: inline-block;
+  width: calc(50% - 20px);
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  vertical-align: top;
+}
+
+.card1 h3 {
+  margin-top: 0;
+}
+
+.card1 p {
+  margin-bottom: 15px;
+}
+
+.card1 a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card1 a:hover {
+  text-decoration: underline;
+}
+
+.ristoranti,
+.alloggi,
+.trasporti,
+.attività {
+  display: flex;
+}
+
+.card1 img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+/*gallery*/
+
+.slider1-container {
+  width: 100px; /* Imposta la larghezza massima dello slider a 200px */
+  margin: 0 auto; /* Centra lo slider orizzontalmente */
+  position: relative; /* Per consentire il posizionamento assoluto degli slide */
+  overflow: hidden; /* Nascondi gli slide oltre i 200px */
+}
+
+.slide1 {
+  display: none; /* Nascondi di default gli slide */
+  position: absolute; /* Posizionamento assoluto per sovrapporre gli slide */
+  top: 0;
+  left: 0;
+}
+
+.slider-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slider-controls button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.slider-controls button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.slide1 img {
+  width: 2rem;
+}
