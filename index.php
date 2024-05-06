@@ -43,28 +43,28 @@
     </div>
 </div>
 
-<!-- Sezione Durante il viaggio -->
-<div id="during-travel" class="section">
-    <div class="container">
-        <h1>Durante il viaggio</h1>
-        <div class="during-travel-content">
-            <div class="during-travel-item">
-                <img class="social-icon" style="width: 50px; height: auto; fill: #ed6f1d;" src="<?php echo get_template_directory_uri(); ?>../assets/person.svg" alt="Person" />
-                <h4>Chi conoscerai?</h4>
-                <p>Durante il viaggio avrai l’opportunità di incontrare persone affascinanti provenienti da tutto il mondo, creando legami e scambiando esperienze con compagni di viaggio che condividono la tua passione per l’avventura e la scoperta.</p>
-            </div>
-            <div class="during-travel-item">
-                <img class="social-icon" style="width: 50px; height: auto; fill: #ed6f1d;" src="<?php echo get_template_directory_uri(); ?>../assets/binoculars.svg" alt="Binocolo" />
-                <h4>Chi ti guiderà?</h4>
-                <p>Durante il viaggio sarà una guida locale esperta, dotata di profonda conoscenza della cultura, della storia e delle tradizioni del luogo. Grazie alla sua competenza, sarai accompagnato attraverso i luoghi più significativi e avrai accesso a racconti e aneddoti che arricchiranno la tua esperienza.</p>
-            </div>
-            <div class="during-travel-item">
-                <img class="social-icon" style="width: 50px; height: auto; fill: #ed6f1d;" src="<?php echo get_template_directory_uri(); ?>../assets/fire.svg" alt="Fire" />
-                <h4>Quali avventure ti aspettano?</h4>
-                <p>Le avventure che farai includeranno esplorazioni in luoghi mozzafiato, incontri con culture diverse, e attività emozionanti che ti porteranno al di là dei confini della tua comfort zone. Ogni giorno ti riserverà nuove e indimenticabili esperienze.</p>
-            </div>
-        </div>
-    </div>
+<!-- Sezione Durante il viaggio --> 
+<div id="during-travel" class="section"> 
+    <div class="container"> 
+        <h1>Durante il viaggio</h1> 
+        <div class="during-travel-content"> 
+            <div class="during-travel-item"> 
+                <img class="social-icon" style="width: 50px; height: auto; fill: #ed6f1d;" src="<?php echo get_template_directory_uri(); ?>../assets/person.svg" alt="Person" /> 
+                <h4>Chi conoscerai?</h4> 
+                <p>Durante il viaggio avrai l’opportunità di incontrare persone affascinanti provenienti da tutto il mondo, creando legami e scambiando esperienze con compagni di viaggio che condividono la tua passione per l’avventura e la scoperta.</p> 
+            </div> 
+            <div class="during-travel-item"> 
+                <img class="social-icon" style="width: 50px; height: auto; fill: #ed6f1d;" src="<?php echo get_template_directory_uri(); ?>../assets/binoculars.svg" alt="Binocolo" /> 
+                <h4>Chi ti guiderà?</h4> 
+                <p>Durante il viaggio sarà una guida locale esperta, dotata di profonda conoscenza della cultura, della storia e delle tradizioni del luogo. Grazie alla sua competenza, sarai accompagnato attraverso i luoghi più significativi e avrai accesso a racconti e aneddoti che arricchiranno la tua esperienza.</p> 
+            </div> 
+            <div class="during-travel-item"> 
+                <img class="social-icon" style="width: 50px; height: auto; fill: #ed6f1d;" src="<?php echo get_template_directory_uri(); ?>../assets/fire.svg" alt="Fire" /> 
+                <h4>Quali avventure ti aspettano?</h4> 
+                <p>Le avventure che farai includeranno esplorazioni in luoghi mozzafiato, incontri con culture diverse, e attività emozionanti che ti porteranno al di là dei confini della tua comfort zone. Ogni giorno ti riserverà nuove e indimenticabili esperienze.</p> 
+            </div> 
+        </div> 
+    </div> 
 </div>
 
 
