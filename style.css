@@ -410,3 +410,26 @@ footer a:hover {
   max-width: 100%;
   height: auto;
 }
+
+a {
+  text-decoration: none;
+}
+
+.titlePlace {
+  font-size: 4rem;
+  letter-spacing: 4px;
+  font-weight: 800;
+}
+
+.cardPlace {
+  height: 600px;
+  margin-bottom: 5em;
+}
+
+.namePlace {
+  height: 100px;
+}
+
+.imgPlace {
+  height: fit-content;
+}

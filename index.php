@@ -11,17 +11,19 @@
     <h1>Prepara lo zaino! Si parte.</h1>
 </div>
 
-<div class="container fluid">
+<div class="container-fluid my-5 py-5">
     <div class="row">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <div class="col-md-3 card m-3">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="<?php the_permalink()?>"><?php the_title(); ?></a></h5>
-                </div>
-                <div style="height: 200px" class="overflow-hidden">
-                    <img class="card-img-top img-fluid" src="<?php echo get_the_post_thumbnail_url()?>" alt="<?php the_title(); ?>">
-                </div>
-        </div>
+            <div class="col-12 col-md-4 my-3">
+                <a href="<?php the_permalink()?>" class="card cardPlace">
+                    <div class="card-body namePlace">
+                        <h2 class="card-title text-center text-uppercase titlePlace"><?php the_title(); ?></h2>
+                    </div>
+                    <div class="overflow-hidden imgPlace">
+                        <img class="card-img-top img-fluid" src="<?php echo get_the_post_thumbnail_url()?>" alt="<?php the_title(); ?>">
+                    </div>
+                </a>
+            </div>
         <?php endwhile; endif; ?>
     </div>
 </div>
