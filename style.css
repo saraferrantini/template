@@ -421,6 +421,13 @@ a {
   font-weight: 800;
   color: #f9f9f9;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.cardPlace:hover .titlePlace {
+  opacity: 1;
 }
 
 .cardPlace .namePlace {
@@ -430,4 +437,20 @@ a {
   justify-content: center;
   text-align: center;
   padding: 1rem;
+}
+
+.cardPlace:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+  z-index: 1;
+}
+
+.cardPlace:hover:before {
+  background-color: rgba(0, 0, 0, 0.3);
 }
