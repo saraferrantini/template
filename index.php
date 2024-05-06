@@ -15,12 +15,9 @@
     <div class="row">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <div class="col-12 col-md-4 my-3">
-                <a href="<?php the_permalink()?>" class="card cardPlace">
+                <a href="<?php the_permalink()?>" class="card cardPlace" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>');">
                     <div class="card-body namePlace">
                         <h2 class="card-title text-center text-uppercase titlePlace"><?php the_title(); ?></h2>
-                    </div>
-                    <div class="overflow-hidden imgPlace">
-                        <img class="card-img-top img-fluid" src="<?php echo get_the_post_thumbnail_url()?>" alt="<?php the_title(); ?>">
                     </div>
                 </a>
             </div>

@@ -419,17 +419,15 @@ a {
   font-size: 4rem;
   letter-spacing: 4px;
   font-weight: 800;
+  color: #f9f9f9;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
 
-.cardPlace {
+.cardPlace .namePlace {
   height: 600px;
-  margin-bottom: 5em;
-}
-
-.namePlace {
-  height: 100px;
-}
-
-.imgPlace {
-  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
 }
