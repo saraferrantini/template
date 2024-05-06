@@ -17,4 +17,18 @@ function custom_theme_setup() {
 }
 add_action('after_setup_theme', 'custom_theme_setup');
 
+
+function add_bootstrap() {
+    wp_enqueue_style('bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css");
+    wp_enqueue_script('bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js");  
+}
+
+add_action('wp_enqueue_scripts', 'add_bootstrap');
+
+// function add_jquery() {
+//     wp_enqueue_script('jquery');
+// }
+
+// add_action('wp_enqueue_scripts', 'add_jquery');
+
 ?>

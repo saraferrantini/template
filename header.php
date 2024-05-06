@@ -6,7 +6,7 @@
     <title><?php wp_title(); ?></title>
 
     <!-- aggancio al css -->
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/style.css">
+    
 
 
     <?php wp_head(); ?>
