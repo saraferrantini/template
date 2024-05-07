@@ -8,6 +8,7 @@ Author: Sara Ferrantini
 /* Di seguito inseriremo il codice CSS */
 
 /* Stile generale del corpo e del testo */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
@@ -152,3 +153,41 @@ footer a:hover {
   font-size: 1.1rem;
   line-height: 1.6;
 }
+
+
+/* Search Style */
+
+.search-box {
+  font-size: 16px;
+  border: solid 2px #fff; /* Colore del bordo bianco */
+  display: inline-block;
+  position: relative;
+  border-radius: 20px;
+}
+
+.search-box input[type="text"] {
+  font-family: inherit;
+  font-weight: bold;
+  width: calc(100% - 40px); /* Sottratto lo spazio occupato dal pulsante di ricerca */
+  height: 40px;
+  padding: 10px;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0); /* Nero con 50% di opacità */
+  color: #fff; /* Colore del testo bianco */
+  transition: width 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  &:focus {
+      outline: none;
+  }
+}
+
+.search-box input[type="submit"] {
+  display: none; /* Nasconde il pulsante di ricerca */
+}
+
+.screen-reader-text {
+  display: none;
+}
+
+/* Search Style end */
