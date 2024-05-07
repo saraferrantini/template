@@ -384,6 +384,11 @@ a {
   text-decoration: none;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 .titlePlace {
   font-size: 3rem;
   letter-spacing: 4px;
