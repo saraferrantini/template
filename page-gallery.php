@@ -8,7 +8,7 @@
 </style>
 
 
-
+<div class="container">
 <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <?php
@@ -52,5 +52,5 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
+</div>
 <?php get_footer(); ?>
