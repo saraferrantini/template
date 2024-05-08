@@ -65,22 +65,18 @@ if (isset($_POST['submit'])) {
 }
 
 function searchfilter($query) {
-
     if ($query->is_search && !is_admin() ) {
-        $query->set(
-'tax_query', [
-'relation' => 'OR',
-[
-'taxonomy' => 'category',
-'field' => 'name',
-'compare' => 'like',
-'terms' => $_GET['s'],
-],]);
+        $terms = get_terms([
+            'name__like' => $_GET['s'],
+            'fields' => 'ids'
+        ]);
+        $query->set('category__not_in', $terms);
+        $query->set('post_type', ['post']);
     }
     
     return $query;
-    }
+}
     
-    add_filter('pre_get_posts','searchfilter');
+add_filter('pre_get_posts','searchfilter');
 
 ?>
