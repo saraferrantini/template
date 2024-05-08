@@ -64,4 +64,23 @@ if (isset($_POST['submit'])) {
     }
 }
 
+function searchfilter($query) {
+
+    if ($query->is_search && !is_admin() ) {
+        $query->set(
+'tax_query', [
+'relation' => 'OR',
+[
+'taxonomy' => 'category',
+'field' => 'name',
+'compare' => 'like',
+'terms' => $_GET['s'],
+],]);
+    }
+    
+    return $query;
+    }
+    
+    add_filter('pre_get_posts','searchfilter');
+
 ?>
