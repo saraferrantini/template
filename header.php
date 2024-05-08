@@ -15,7 +15,7 @@
 </head>
 <body <?php body_class(); ?>>
 
-<nav class="d-flex align-items-center justify-content-between">
+<nav class="d-flex align-items-center justify-content-evenly">
     <div>
         <!-- Controlla se c'è un'icona del sito -->
         <?php if (has_site_icon()) : ?>
