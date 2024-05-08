@@ -27,14 +27,9 @@
                 <?php endif; ?>
             </div>
 
-            <form role="search" method="get" id="searchform"
-                class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                <div>
-                    <label class="screen-reader-text" for="s"><?php _x( 'Search for:', 'label' ); ?></label>
-                    <input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" />
-                    <input type="submit" id="searchsubmit"
-                        value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
-                </div>
+            <form role="search" method="get" id="searchform" class="d-flex" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <input class="form-control me-2" type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="<?php _x( 'Search for:', 'label' ); ?>" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit" id="searchsubmit" value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>"><?php echo esc_attr_x( 'Search', 'submit button' ); ?></button>
             </form>
 
             <div class="text-end">
