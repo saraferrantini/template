@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="col-6">
-                <h3 class="fw-bold">CONTACT US!</h3>
+                <h3 class="fw-bold pt-2">CONTACT US!</h3>
                 <?php include 'form.php'; ?>
             </div>
         </div>
