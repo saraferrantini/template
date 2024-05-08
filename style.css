@@ -225,51 +225,6 @@ button[type="submit"]:hover {
   line-height: 1.6;
 }
 
-/*sezione pratica*/
-.card1 {
-  display: inline-block;
-  width: calc(50% - 20px);
-  margin: 10px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  vertical-align: top;
-}
-
-.card1 h3 {
-  margin-top: 0;
-}
-
-.card1 p {
-  margin-bottom: 15px;
-}
-
-.card1 a {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.card1 a:hover {
-  text-decoration: underline;
-}
-
-.ristoranti,
-.alloggi,
-.trasporti,
-.attività {
-  display: flex;
-}
-
-.card1 img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-}
-
 /* TESTIMONIANZE*/
 
 #testimonials {
@@ -348,14 +303,14 @@ button[type="submit"]:hover {
   margin-top: 20px;
 }
 
-/* prova */
+/* Promozioni */
 /* Altre regole CSS per la tua promozioni-text-card */
 .promozioni-text-card {
-  width: 100%; /* Lunghezza pari al footer */
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px; /* Aggiungi spazio intorno alla card */
+  padding: 20px;
 }
 
 .promozioni-text {
@@ -367,20 +322,20 @@ button[type="submit"]:hover {
 .promozioni-images {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 20px; /* Aggiungi spazio tra le immagini e il testo */
+  margin-bottom: 20px;
 }
 
 .promozioni-images img {
-  width: 200px; /* Aumenta la larghezza delle immagini */
-  height: 200px; /* Aumenta l'altezza delle immagini */
-  object-fit: cover; /* Mantiene l'aspetto quadrato */
-  margin-right: 20px; /* Aggiunge spazio tra le immagini */
-  transition: transform 0.3s ease; /* Aggiunge una transizione fluida */
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-right: 20px;
+  transition: transform 0.3s ease;
 }
 
 /* Effetto hover sulle immagini */
 .promozioni-images img:hover {
-  transform: scale(1.1); /* Ingrandisce leggermente l'immagine al passaggio del mouse */
+  transform: scale(1.1);
 }
 
 /* Rimuovi il margine alla fine dell'ultima immagine */
@@ -442,7 +397,7 @@ a {
 
 ul {
   padding: 0;
-  margin: 0;
+  margin: 0 !important;
 }
 
 .titlePlace {
@@ -495,6 +450,5 @@ ul {
 }
 
 /* Search Style */
-
 
 /* Search Style end */
