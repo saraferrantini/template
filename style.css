@@ -213,51 +213,6 @@ footer a:hover {
   line-height: 1.6;
 }
 
-/*sezione pratica*/
-.card1 {
-  display: inline-block;
-  width: calc(50% - 20px);
-  margin: 10px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  vertical-align: top;
-}
-
-.card1 h3 {
-  margin-top: 0;
-}
-
-.card1 p {
-  margin-bottom: 15px;
-}
-
-.card1 a {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.card1 a:hover {
-  text-decoration: underline;
-}
-
-.ristoranti,
-.alloggi,
-.trasporti,
-.attività {
-  display: flex;
-}
-
-.card1 img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-}
-
 /* TESTIMONIANZE*/
 
 #testimonials {
