@@ -41,67 +41,96 @@ get_header();
 
 <?php
 // Funzione per ottenere le card dei post in base alla categoria
-function get_category_posts($category_name) {
-    $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => -1,
-        
-    );
-    $posts_query = new WP_Query($args);
+function get_category_posts() {
+    $categories = get_categories();
 
-   
-    if ($posts_query->have_posts()) :
+    // Array per raggruppare le sottocategorie per nome
+    $grouped_categories = array();
+
+    // Itera su tutte le categorie
+    foreach ($categories as $category) {
+        // Se la categoria non ha genitori (è una categoria di primo livello)
+        if ($category->parent == 0) {
+            // Verifica se la categoria ha sottocategorie
+            $sub_categories = get_categories(array(
+                'parent' => $category->term_id
+            ));
+
+            // Se ci sono sottocategorie, raggruppale per nome
+            if ($sub_categories) {
+                foreach ($sub_categories as $sub_category) {
+                    $grouped_categories[$sub_category->name][] = $sub_category;
+                }
+            }
+        }
+    }
+
+    // Array per memorizzare gli ID dei post già visualizzati
+    $displayed_posts = array();
+
+    // Itera sui gruppi di sottocategorie per ottenere i post associati
+    foreach ($grouped_categories as $group_name => $sub_categories) {
         ?>
-        <div class="col">
-            <h2 class="text-center mt-5"><?php echo ucfirst($category_name); ?></h2>
+        <div class="container">
             <div class="row">
-                <?php
-                while ($posts_query->have_posts()) : $posts_query->the_post();
-                    
-                    $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                    
-                    $content = get_the_content();
-                
-                    if ($thumbnail_url && $content) {
-                        ?><div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                        <div class="card">
-                            <div class="card-overlay">
-                                <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
-                            </div>
-                            <img src="<?php echo esc_url($thumbnail_url); ?>" class="card-img-top" alt="<?php the_title_attribute(); ?>">
-                            <div class="card-body">
-                                <div class="card-text"><?php echo wp_trim_words($content, 20); ?></div>
-                                <a href="<?php the_permalink(); ?>" class="btn"><strong><u><em>Continua a leggere...</em></u></strong></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                      
+                <div class="col">
+                    <h2 class="text-center mt-5"><?php echo ucfirst($group_name); ?></h2>
+                    <div class="row">
                         <?php
-                    }
-                endwhile;
-                ?>
+                        foreach ($sub_categories as $sub_category) {
+                            $args = array(
+                                'post_type' => 'post',
+                                'posts_per_page' => -1,
+                                'category__in' => $sub_category->term_id,
+                            );
+                            $posts_query = new WP_Query($args);
+
+                            // Output delle card solo se ci sono post nella categoria corrente
+                            if ($posts_query->have_posts()) :
+                                while ($posts_query->have_posts()) : $posts_query->the_post();
+                                    // Controlla se il post è già stato visualizzato
+                                    if (in_array(get_the_ID(), $displayed_posts)) {
+                                        continue;
+                                    }
+
+                                    $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                                    $content = get_the_content();
+
+                                    if ($thumbnail_url && $content) {
+                                        // Aggiungi l'ID del post all'array dei post visualizzati
+                                        $displayed_posts[] = get_the_ID();
+                                        ?>
+                                        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                            <div class="card">
+                                                <div class="card-overlay">
+                                                    <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
+                                                </div>
+                                                <img src="<?php echo esc_url($thumbnail_url); ?>" class="card-img-top" alt="<?php the_title_attribute(); ?>">
+                                                <div class="card-body">
+                                                    <div class="card-text"><?php echo wp_trim_words($content, 20); ?></div>
+                                                    <a href="<?php the_permalink(); ?>" class="btn"><strong><u><em>Continua a leggere...</em></u></strong></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                endwhile;
+                            endif;
+                            wp_reset_postdata();
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
         <?php
-        wp_reset_postdata();
-    else :
-        echo '<p>Nessun post trovato per la categoria ' . $category_name . '</p>';
-    endif;
+    }
 }
 
 // Output delle card divise per categoria
+get_category_posts();
 ?>
-
-<div class="container">
-   
-<div class="row "><?php get_category_posts('Attività'); ?></div>
-    <div class="row"><?php get_category_posts('Trasporti'); ?></div>
-    <div class="row"><?php get_category_posts('Alloggi'); ?></div>
-    <div class="row"><?php get_category_posts('Ristoranti'); ?></div>
-    
-    
-</div>
 
 <?php
 get_footer();
+?>
