@@ -14,13 +14,20 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <header>
-        <nav>
-            <img src="<?php echo get_template_directory_uri(); ?>../assets/logo.jpg" alt="Logo" class="logo">
-            <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
+   
+<nav class="d-flex align-items-center justify-content-evenly">
+        <div>
+            <!-- Controlla se c'è un'icona del sito -->
+            <?php if (has_site_icon()) : ?>
+                <!-- Usa l'icona del sito -->
+                <img src="<?php echo esc_url(get_site_icon_url()); ?>" alt="Icona del sito" class="logo">
+            <?php else : ?>
+                <!-- Altrimenti, usa il logo -->
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/logo.jpg" alt="Logo" class="logo">
+            <?php endif; ?>
+        </div>
 
-            <!-- Search -->
-            <form role="search" method="get" id="searchform"
+<form role="search" method="get" id="searchform"
                 class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                 <div>
                     <label class="screen-reader-text" for="s"><?php _x( 'Search for:', 'label' ); ?></label>
@@ -29,7 +36,9 @@
                         value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
                 </div>
             </form>
-            <!-- Search end -->
-        </nav>
-    </header>
 
+        <div class="text-end">
+            <!-- Menu di navigazione -->
+            <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
+        </div>
+</nav>
