@@ -109,7 +109,7 @@ button[type="submit"]:hover {
   position: relative;
   width: 100%;
   height: 900px;
-  background-image: url("https://desiderandoviaggiare.com/wp-content/uploads/2021/10/bg-viaggi-gruppo.jpg");
+  /* background-image: url("https://desiderandoviaggiare.com/wp-content/uploads/2021/10/bg-viaggi-gruppo.jpg"); */
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -440,8 +440,13 @@ a {
   text-decoration: none;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 .titlePlace {
-  font-size: 4rem;
+  font-size: 3rem;
   letter-spacing: 4px;
   font-weight: 800;
   color: #f9f9f9;
@@ -451,12 +456,21 @@ a {
   z-index: 2;
 }
 
+.titleBanner {
+  font-size: 4rem;
+  letter-spacing: 4px;
+  font-weight: 800;
+  color: #f9f9f9;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  z-index: 2;
+}
+
 .cardPlace:hover .titlePlace {
   opacity: 1;
 }
 
 .cardPlace .namePlace {
-  height: 600px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;

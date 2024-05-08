@@ -1,101 +1,59 @@
-
-<!-- Corrisponde al file index.php e sarebbe la HOME PAGE -->
-
-<!-- il file index.php contiene tutti gli elementi che compongono la nostra home page-->
-
-<!-- serve per richiamare quanto scritto nell'header -->
 <?php get_header(); ?>
 
 <!-- Slider con titolo in grande e sfondo immagine -->
-<div id="slider">
-    <h1>Prepara lo zaino! Si parte.</h1>
+<?php
+// Recupera l'immagine di sfondo della home page
+$background_image = get_the_post_thumbnail_url(get_option('page_on_front'), 'full');
+
+// Recupera il testo della home page
+$page_content = get_post_field('post_content', get_option('page_on_front'));
+?>
+
+<div id="slider" style="background-image: url('<?php echo esc_url($background_image); ?>');">
+    <h1 class="titleBanner text-uppercase w-100"><?php echo apply_filters('the_content', $page_content); ?></h1>
 </div>
 
+<?php
+// Recupera tutte le categorie
+$categories = get_categories();
+
+if ($categories) :
+?>
 <div class="container-fluid my-5 py-5">
     <div class="row">
-        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <div class="col-12 col-sm-6 col-md-4 my-3">
-                <a href="<?php the_permalink()?>" class="card cardPlace" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>'); background-size: cover;">
-                    <div class="card-body namePlace">
-                        <h2 class="card-title text-center text-uppercase titlePlace"><?php the_title(); ?></h2>
-                    </div>
-                </a>
-            </div>
-        <?php endwhile; endif; ?>
+        <?php foreach ($categories as $category) : ?>
+            <?php
+            // Recupera gli articoli all'interno della categoria
+            $category_posts_args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 1,
+                'category__in' => array($category->term_id),
+                'orderby' => 'date',
+                'order' => 'DESC', // Ordina in modo decrescente per trovare l'articolo più recente
+            );
+            $category_posts_query = new WP_Query($category_posts_args);
+
+            // Se trova un articolo all'interno della categoria
+            if ($category_posts_query->have_posts()) :
+                $category_posts_query->the_post();
+                // Recupera l'immagine di copertina dell'articolo
+                $article_cover_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                ?>
+                <div class="col-12 col-lg-6 col-xxl-4 my-3">
+                    <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="card cardPlace" style="background-image: url('<?php echo esc_url($article_cover_image); ?>'); background-size: cover;">
+                        <div class="card-body namePlace">
+                            <h2 class="card-title text-center text-uppercase titlePlace"><?php echo esc_html($category->name); ?></h2>
+                        </div>
+                    </a>
+                </div>
+            <?php
+            endif;
+            wp_reset_postdata(); // Ripristina il loop degli articoli
+            ?>
+        <?php endforeach; ?>
     </div>
 </div>
-
-<!-- Sezione "Dicono di noi" -->
-<div id="about-us" class="section">
-    <div class="container">
-        <div class="about-us-content">
-            <div class="about-us-text">
-                <h1>Chi siamo</h1>
-                <p>Con passione e impegno, creiamo esperienze indimenticabili che parlano da sole, guadagnandoci la fiducia di coloro che cercano avventure autentiche e memorabili. 
-                    <p>La nostra missione è quella di ispirare avventure, connettere culture e rendere il mondo accessibile a tutti. Ci impegniamo a fornire viaggi che non solo soddisfino le vostre aspettative, ma che superino ogni vostra aspettativa, creando ricordi duraturi lungo il cammino. </p>
-              
-            </div>
-            <div class="about-us-image">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/turisti_felici.jpg" alt="Logo" class="logo">
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Sezione Durante il viaggio --> 
-<div id="during-travel" class="section"> 
-    <div class="container"> 
-        <h1>Durante il viaggio</h1> 
-        <div class="during-travel-content"> 
-            <div class="during-travel-item"> 
-                <img class="social-icon" style="width: 50px; height: auto; fill: #ed6f1d;" src="<?php echo get_template_directory_uri(); ?>../assets/person.svg" alt="Person" /> 
-                <h4>Chi conoscerai?</h4> 
-                <p>Durante il viaggio avrai l’opportunità di incontrare persone affascinanti provenienti da tutto il mondo, creando legami e scambiando esperienze con compagni di viaggio che condividono la tua passione per l’avventura e la scoperta.</p> 
-            </div> 
-            <div class="during-travel-item"> 
-                <img class="social-icon" style="width: 50px; height: auto; fill: #ed6f1d;" src="<?php echo get_template_directory_uri(); ?>../assets/binoculars.svg" alt="Binocolo" /> 
-                <h4>Chi ti guiderà?</h4> 
-                <p>Durante il viaggio sarà una guida locale esperta, dotata di profonda conoscenza della cultura, della storia e delle tradizioni del luogo. Grazie alla sua competenza, sarai accompagnato attraverso i luoghi più significativi e avrai accesso a racconti e aneddoti che arricchiranno la tua esperienza.</p> 
-            </div> 
-            <div class="during-travel-item"> 
-                <img class="social-icon" style="width: 50px; height: auto; fill: #ed6f1d;" src="<?php echo get_template_directory_uri(); ?>../assets/fire.svg" alt="Fire" /> 
-                <h4>Quali avventure ti aspettano?</h4> 
-                <p>Le avventure che farai includeranno esplorazioni in luoghi mozzafiato, incontri con culture diverse, e attività emozionanti che ti porteranno al di là dei confini della tua comfort zone. Ogni giorno ti riserverà nuove e indimenticabili esperienze.</p> 
-            </div> 
-        </div> 
-    </div> 
-</div>
-
-
-
-<!-- Sezione Testimonianze -->
-<div id="testimonials" class="section">
-    <div class="container">
-        <h2>Testimonianze</h2>
-        <div id="testimonials-container">
-            <!-- Testimonianza 1 -->
-            <div class="testimonial-card">
-                <img src="https://hips.hearstapps.com/cit.h-cdn.co/assets/17/14/2560x1706/gallery-1491579603-viaggiare-da-sola.jpg?resize=640:*" alt="Testimonianza 1">
-                <p>Ogni momento è stato magico, dalle sorprese inaspettate alle connessioni umane profonde che abbiamo creato lungo il percorso</p>
-                <div>-Maria-</div>
-            </div>
-            <!-- Testimonianza 2 -->
-            <div class="testimonial-card">
-                <img src="https://www.ramitours.it/wp-content/uploads/viaggiare-con-sconosciuti-1024x683.jpg" alt="Testimonianza 2">
-                <p>E’ stata un’esperienza straordinaria che ha superato ogni aspettativa. Ogni tappa ci ha regalato emozioni uniche.
-
-</p>
-<div>-Luca e Giulia-</div>
-            </div>
-            <!-- Testimonianza 3 -->
-            <div class="testimonial-card">
-                <img src="https://images2.corriereobjects.it/methode_image/2022/06/29/Salute/Foto%20Salute%20-%20Trattate/GettyImages-1363398400-kskC-U33501866499873laF-656x492@Corriere-Web-Sezioni.jpg?v=20220730152137" alt="Testimonianza 3">
-                <p>La dedizione del team e la cura per ogni dettaglio hanno reso questo viaggio un’esperienza indimenticabile.</p>
-                <div>-Miya Galindo-</div>
-            </div>
-        </div>
-    </div>
-</div>
+<?php endif; ?>
 
 
 <?php get_footer(); ?>
