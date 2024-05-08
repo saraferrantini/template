@@ -57,7 +57,7 @@ nav img {
 
 /* FOOTER */
 footer {
-  background-color: rgb(24, 35, 55);
+  background-color: #1e2327;
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -76,6 +76,17 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* Bottone Invia */
+button[type="submit"] {
+  background-color: #fb572a;
+  color: white;
+  border: none;
+}
+
+button[type="submit"]:hover {
+  background-color: #fc6337; /* Mantieni lo stesso colore di sfondo */
 }
 
 .social-icons {
@@ -334,6 +345,50 @@ footer a:hover {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
   margin-top: 20px;
+}
+
+/* prova */
+/* Altre regole CSS per la tua promozioni-text-card */
+.promozioni-text-card {
+  width: 100%; /* Lunghezza pari al footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; /* Aggiungi spazio intorno alla card */
+}
+
+.promozioni-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.promozioni-images {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px; /* Aggiungi spazio tra le immagini e il testo */
+}
+
+.promozioni-images img {
+  width: 200px; /* Aumenta la larghezza delle immagini */
+  height: 200px; /* Aumenta l'altezza delle immagini */
+  object-fit: cover; /* Mantiene l'aspetto quadrato */
+  margin-right: 20px; /* Aggiunge spazio tra le immagini */
+  transition: transform 0.3s ease; /* Aggiunge una transizione fluida */
+}
+
+/* Effetto hover sulle immagini */
+.promozioni-images img:hover {
+  transform: scale(1.1); /* Ingrandisce leggermente l'immagine al passaggio del mouse */
+}
+
+/* Rimuovi il margine alla fine dell'ultima immagine */
+.promozioni-images img:last-child {
+  margin-right: 0;
+}
+
+.promozioni-content {
+  text-align: center;
 }
 
 /* PARTNER */

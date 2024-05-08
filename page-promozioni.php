@@ -87,12 +87,20 @@ get_header(); // Includi l'header del tuo sito WordPress
         <p>Smartbox</p>
     </div>
 </div>
-            <!-- Testo finale -->
-            <div class="promozioni-text-card">
+         
+
+<!-- Testo finale -->
+<div class="promozioni-text-card mb-5"> 
     <div class="promozioni-text">
-        <img src="https://viaggioingruppo.it/wp-content/uploads/2020/09/viaggi-di-gruppo-viaggi-organizzati-1.jpg" alt="Descrizione dell'immagine">
-        <p>Non perdere l’opportunità di vivere un’esperienza unica al miglior prezzo! Prenota ora il tuo viaggio con Itinere e goditi sconti esclusivi su pacchetti vacanza selezionati. Non aspettare, il mondo ti sta aspettando!</p>
-        <p><strong>Contattaci</strong> oggi stesso per pianificare il tuo prossimo viaggio e scoprire di più sulle nostre offerte!</p>
+        <div class="promozioni-images">
+            <img src="https://st4.depositphotos.com/4640111/41072/i/450/depositphotos_410721236-stock-photo-planning-vacation-travel-plan-trip.jpg" alt="Immagine 1">
+            <img src="https://www.fittel.it/wp-content/uploads/2021/06/viaggiare-1024x575.jpg" alt="Immagine 2">
+            <img src="https://www.agenziaviaggidimare.it/wp-content/uploads/2021/01/agenzia-viaggi-di-mare-massa.jpg" alt="Immagine 3">
+        </div>
+        <div class="promozioni-content">
+            <p>Non perdere l'opportunità di vivere un'esperienza unica al miglior prezzo! Prenota ora il tuo viaggio con Itinere e goditi sconti esclusivi su pacchetti vacanza selezionati. Il mondo ti sta aspettando!</p>
+            <p><strong>Contattaci</strong> oggi stesso per pianificare il tuo prossimo viaggio e scoprire di più sulle nostre imperdibili offerte!</p>
+        </div>
     </div>
 </div>
 
