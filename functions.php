@@ -19,7 +19,7 @@ add_action('wp_enqueue_scripts', 'custom_theme_enqueue_styles');
 function custom_theme_setup() {
 //per il menù di navigazione
     register_nav_menu('primary', 'Primary Menu');
-    add_theme_support('post-thumbnails');
+    add_theme_support('post-thumbnails', ["post","page"]);
 }
 add_action('after_setup_theme', 'custom_theme_setup');
 
