@@ -6,6 +6,7 @@ Author: Sara Ferrantini
 */
 
 /* Stile generale del corpo e del testo */
+
 body {
   font-family: Arial, sans-serif;
 
@@ -478,3 +479,8 @@ a {
 .cardPlace:hover:before {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+/* Search Style */
+
+
+/* Search Style end */
